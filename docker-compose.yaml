@@ -1,10 +1,16 @@
 version: "3"
+
 services:
+
   centos-build-test:
+
     image: wiemfd/centos-ssh
     container_name: centos_build_test
     ports:
       - "8082:8082"
+    networks:
+      orchestrationNetwork:
+        ipv4_address: 192.168.10.2
     volumes:
       - /var/lib/docker/volumes/centos_build_test_home/_data:/var/centos_build_test_home
       - /usr/bin/docker:/usr/bin/docker
@@ -13,10 +19,14 @@ services:
     restart: always
 
   centos-preprod:
+
     image: wiemfd/centos-ssh
     container_name: centos_preprod
     ports:
       - "8083:8083"
+    networks:
+      orchestrationNetwork:
+        ipv4_address: 192.168.10.3
     volumes:
       - /var/lib/docker/volumes/centos_preprod_home/_data:/var/centos_preprod_home
       - /usr/bin/docker:/usr/bin/docker
@@ -25,10 +35,14 @@ services:
     restart: always
   
   centos-prod:
+
     image: wiemfd/centos-ssh
     container_name: centos_prod
     ports:
       - "8084:8084"
+    networks:
+      orchestrationNetwork:
+        ipv4_address: 192.168.10.4
     volumes:
       - /var/lib/docker/volumes/centos_prod_home/_data:/var/centos_prod_home
       - /usr/bin/docker:/usr/bin/docker
@@ -41,5 +55,5 @@ networks:
     driver: bridge
     ipam:
      config:
-       - subnet: 192.168.20.0/16
-         gateway : 192.168.20.1
+       - subnet: 192.168.10.0/24
+         gateway : 192.168.10.1
