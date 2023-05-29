@@ -1,0 +1,20 @@
+---
+- name: Generate SSH key pair and copy public key to nodes
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Generate SSH key pair
+      openssh_keypair:
+        path: ~/.ssh/id_rsa
+        owner: root
+        size: 4096
+      register: keypair_output
+
+    - name: Copy public key to nodes
+      authorized_key:
+        user: root
+        state: present
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+      delegate_to: "{{ item }}"
+      with_items: "{{ groups['myNodes'] }}"
