@@ -4,43 +4,46 @@
 OS: CentOS Stream release 9 /
 Install :  Java
           - Docker
-          - Git
-### 1.  Create a CentOS-SSH image using Dockerfile.
-### 2.  Run the following command to add the user to the Docker group:
+          - Git - SSH
+### 1.  Build the Docker image:
 ```
-sudo usermod -aG docker <username>
-````
+sudo su
 ```
-logout or exit
-```
-### 3.  Build the Docker image:
 ```
 docker build -t <image-name> <path-to-dockerfile>
 ```
-### 4.  Check if the image was created:
+### 2.  Check if the image was created:
 ```
 docker images
 ```
-### 5.  Create containers using the CentOS-SSH image:
+### 3.  Create containers using the CentOS-SSH image:
 ```
 docker run -d --name <container-name> <image-name>
 ```
-### 6.  Check if containers were created:
+### 4.  Check if containers were created:
 ```
 docker ps -a
 ```
-### 7.  Run the containers in detached mode:
+### 5.  Run the containers in detached mode:
 ```
 docker-compose up -d
 ```
-### 8.  Create an inventory file to define the nodes.
-### 9.  Create an ansible playbook to generate SSH key pair and copy public key to nodes.
-### 10.  Execute the playbook and enter the SSH password:
+### 6.  Execute the playbook ssh-keygen-copy.yml and enter the SSH password:
 
+After creating an inventory file to define the remote nodes, it's important to generate SSH key pair and copy public key to nodes for authentication without password in Ansible:
 ```
-sudo su && cd ansible && ansible-playbook ssh-keygen-copy.yml -i inventory.ini --ask-pass
+cd ansible && ansible-playbook ssh-keygen-copy.yml -i inventory.ini --ask-pass
 ```
-### 11.  Ping the managed nodes:
+### 7. Test SSH connection to a remote node without password: 
+Locate the IP address of a container:
+```
+docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <containerID|container-name>
+```
+Test SSH connection to the container as a remote node:
+```
+ssh root@192.168.10.3
+```
+### 7.  Ping the managed nodes:
 ```
 ansible -m ping all -i inventory.ini
 ```
