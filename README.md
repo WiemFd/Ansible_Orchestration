@@ -55,3 +55,6 @@ ansible -m ping all -i inventory.ini
 ```
 ansible-playbook HelloWorld.yml -i inventory.ini
 ```
+<div align="center">
+<img src="https://github.com/WiemFd/Ansible_Orchestration/assets/128514665/fa6ca6ae-0897-463d-99ed-e56e2880bd7d.png" width="700" height="350">
+</div>
