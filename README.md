@@ -34,6 +34,10 @@ After creating an inventory file to define the remote nodes, it's important to g
 ```
 cd ansible && ansible-playbook ssh-keygen-copy.yml -i inventory.ini --ask-pass
 ```
+<div align="center">
+<img src="https://github.com/WiemFd/Ansible_Orchestration/assets/128514665/31fb9f28-c3aa-4353-843b-e8bede59380d" width="700" height="350">
+</div>
+
 ### 7. Test SSH connection to a remote node without password: 
 Locate the IP address of a container:
 ```
