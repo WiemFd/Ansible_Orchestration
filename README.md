@@ -5,10 +5,10 @@ OS: CentOS Stream release 9 /
 Install :  Java
           - Docker
           - Git - SSH
-### 1.  Build the Docker image:
 ```
 sudo su
 ```
+### 1.  Build the Docker image:
 ```
 docker build -t <image-name> <path-to-dockerfile>
 ```
