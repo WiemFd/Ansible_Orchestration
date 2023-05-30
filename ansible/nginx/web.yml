@@ -1,0 +1,26 @@
+---
+- name: Install NGINX
+  hosts: myNodes
+  become: no
+  gather_facts: false
+
+  tasks:
+    - name: Install the EPEL repository
+      yum:
+        name: epel-release
+        state: present
+
+    - name: Install the latest version of NGINX
+      package:
+        name: nginx
+        state: latest
+
+    - name: Copy Nginx configuration file
+      copy:
+        src: nginx.conf
+        dest: /etc/nginx/nginx.conf
+
+    - name: Copy index.html
+      template:
+        src: index.html
+        dest: /usr/share/nginx/html/index.html
