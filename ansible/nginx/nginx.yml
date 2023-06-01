@@ -15,12 +15,13 @@
         name: nginx
         state: latest
 
-    - name: Copy Nginx configuration file
-      copy:
-        src: nginx.conf
-        dest: /etc/nginx/nginx.conf
-
     - name: Copy index.html
       template:
         src: index.html
         dest: /usr/share/nginx/html/index.html
+
+    - name: Activate NGINX service 
+      service:
+        name: nginx
+        state: started
+        enabled: yes
