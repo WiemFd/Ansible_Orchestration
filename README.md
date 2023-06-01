@@ -10,7 +10,7 @@ sudo su
 ```
 ### 1.  Build the Docker image:
 ```
-docker build -t centos-ssh .
+cd Centos-SSH && docker build -t centos-ssh .
 ```
 ### 2.  Check if the image was created:
 ```
@@ -19,7 +19,7 @@ docker images
 ### 3.  Create and start containers in detached mode:
 In a Docker Compose configuration file (docker-compose.yml), it is essential to launch each container with extended privileges and execute the system initialization process inside it to have control over services.
 ```
-docker-compose up -d
+cd .. & docker-compose up -d
 ```
 ### 4.  Check if containers were created:
 ```
