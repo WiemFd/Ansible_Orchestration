@@ -43,7 +43,7 @@ docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}
 ```
 Test SSH connection to the container as a remote node:
 ```
-ssh root@192.168.10.3
+ssh root@192.168.1.23
 ```
 ### 7.  Ping the managed nodes:
 ```
