@@ -1,0 +1,56 @@
+version: "3"
+
+services:
+
+  centos-build-test:
+
+    image: centos-ssh
+    privileged: true
+    entrypoint: ["/usr/sbin/init"]
+    container_name: centos_build_test
+    ports:
+      - "5002:5002"
+    networks:
+      LAN1:
+        ipv4_address: 192.168.1.22
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
+
+  centos-preprod:
+
+    image: centos-ssh
+    privileged: true
+    entrypoint: ["/usr/sbin/init"]
+    container_name: centos_preprod
+    ports:
+      - "5003:5003"
+    networks:
+      LAN1:
+        ipv4_address: 192.168.1.23
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
+  
+  centos-prod:
+
+    image: centos-ssh
+    privileged: true
+    entrypoint: ["/usr/sbin/init"]
+    container_name: centos_prod
+    ports:
+      - "5004:5004"
+    networks:
+      LAN1:
+        ipv4_address: 192.168.1.24
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
+
+networks:
+  LAN1:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 192.168.1.0/24
+         gateway : 192.168.1.1

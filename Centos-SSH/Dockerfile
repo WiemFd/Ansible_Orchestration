@@ -23,4 +23,4 @@ RUN sed -ri 's/^#PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 EXPOSE 22
 
 # Start SSH daemon
-CMD ["/usr/sbin/sshd", "-D"]
+CMD ["/usr/sbin/init"]
