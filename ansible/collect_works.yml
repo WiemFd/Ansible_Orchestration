@@ -1,0 +1,16 @@
+---
+- name: Collect Files from Nodes
+  hosts: myNodes
+  gather_facts: yes
+
+  tasks:
+    - name: Create local directory to collect files
+      file:
+        path: ./works
+        state: directory
+
+    - name: Collect files from nodes
+      fetch:
+        src: ~/myfile.txt
+        dest: ./works
+        flat: no  #If using multiple hosts with the same filename, the file will not be overwritten for each host.

@@ -1,0 +1,28 @@
+- name: Information about Nodes
+  hosts: myNodes
+  gather_facts: yes
+
+  tasks:
+    - command: whoami
+      register: user
+
+    - shell: df -h --total
+      register: system
+
+    - shell: uptime
+      register: uptime
+
+    - shell : yum list installed
+      register: pack
+
+    - debug:
+        msg:
+          - "ID: {{ ansible_hostname }}"
+          - "User: {{ user.stdout }}"
+          - "Group Name: {{ group_names }}"
+          - "IP Address: {{ ansible_default_ipv4.address }}"
+          - "Operating System: {{ ansible_distribution }} {{ ansible_distribution_version }}"
+          - "CPU: {{ ansible_processor }}"
+#          - "Disque Space: {{ system.stdout }}" 
+#          - "Installed Packages: {{ pack.stdout}}"
+          - "System Time : {{ uptime.stdout }}"
