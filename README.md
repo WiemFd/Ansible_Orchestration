@@ -122,6 +122,3 @@ Inside the "works" directory, you will find the collected files from each node. 
 </div>
 
 By using the default value of "flat: no" in the playbook, the files collected from multiple hosts with the same filename will not overwrite each other. This ensures that each file is preserved with its original name and avoids conflicts in the collected files.
-
-
-
