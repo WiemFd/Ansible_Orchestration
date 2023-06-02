@@ -29,9 +29,9 @@ docker ps -a
 ```
 docker network ls
 ```
-### 6.  Execute the playbook ssh-keygen-copy.yml and enter the SSH password:
+### 6.  Execute the playbook SSH_Keygen_Copy.yml and enter the SSH password:
 
-After creating an inventory file to define the remote nodes, it's important to generate an SSH key pair and copy the public key to the nodes. This allows for passwordless authentication in Ansible. The `--ask-pass` option is used to enter the password only during the initial setup. <br>
+After creating an inventory file to define the remote nodes, it's important to generate an SSH key pair and copy the public key to remote nodes. This allows for passwordless authentication in Ansible. The `--ask-pass` option is used to enter the password only during the initial setup. <br>
 The SSH password is set in the Dockerfile "access_ssh".
 ```
 cd ansible && ansible-playbook PLAYBOOKs/SSH_Keygen_Copy.yml -i inventory.ini --ask-pass
@@ -57,7 +57,7 @@ ansible -m ping all -i inventory.ini
 <img src="https://github.com/WiemFd/Ansible_Orchestration/assets/128514665/79546410-6e18-4d4c-8b1f-7d3ea5282cc9.png" width="700" height="350">
 </div>
 
-### 9.  Test Hello World playbook :
+### 9.  Test {Hello World} playbook :
 ```
 ansible-playbook PLAYBOOKs/Hello_World_From.yml -i inventory.ini
 ```
@@ -65,7 +65,7 @@ ansible-playbook PLAYBOOKs/Hello_World_From.yml -i inventory.ini
 <img src="https://github.com/WiemFd/Ansible_Orchestration/assets/128514665/f767eb01-c11e-4b00-ba15-b4366c6b6421.png" width="700" height="350">
 </div>
 
-### 10.  Test Nginx playbook:
+### 10.  Test {Nginx} playbook:
 Install and start nginx web server on one of remote nodes.
 ```
 ansible-playbook PLAYBOOKs/NGINX_Web_Server/nginx.yml -i inventory --limit 192.168.1.23
@@ -96,7 +96,8 @@ If everything is correctly set up, this page will be displayed :
 <img src="https://github.com/WiemFd/Ansible_Orchestration/assets/128514665/608ecb22-9956-4016-a7ae-009d2c62f052" width="700" height="500">
 </div>
 
-###  11.Test {nodes information} playbook :
+###  11.  Test {nodes information} playbook :
+This playbook collects information about the managed nodes. It gathers facts about the system, such as the hostname, user, group name, IP address, operating system, CPU, System time. Besides, there are two commented lines in the playbook that can be activated to gather more information about the disk space and installed packages on each node.
 ```
 ansible-playbook -i inventory.ini PLAYBOOKs/Nodes_Information.yml
 ```
