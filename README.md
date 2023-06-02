@@ -121,7 +121,7 @@ After the playbook execution, a directory named "works" has been created on the 
 Inside the "works" directory, you will find the collected files from each node. The directory structure will be organized based on the hostname of each node.
 
 <div align="center">
-<img src="https://github.com/WiemFd/Ansible_Orchestration/assets/128514665/27b2c7dd-1098-49ee-aefc-7c9a2bfb0cd0" width="300" height="300">
+<img src="https://github.com/WiemFd/Ansible_Orchestration/assets/128514665/27b2c7dd-1098-49ee-aefc-7c9a2bfb0cd0" width="200" height="200">
 </div>
 
 By using the default value of "flat: no" in the playbook, the files collected from multiple hosts with the same filename will not overwrite each other. This ensures that each file is preserved with its original name and avoids conflicts in the collected files.
