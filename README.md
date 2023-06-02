@@ -73,6 +73,7 @@ ansible-playbook PLAYBOOKs/NGINX_Web_Server/nginx.yml -i inventory --limit 192.1
 <div align="center">
 <img src="https://github.com/WiemFd/Ansible_Orchestration/assets/128514665/9f5f541f-7d04-4ee8-9421-277a2e1bfc50" width="700" height="350">
 </div>
+
 Try to connect to this node by running the following command:
 ```
 ssh root@192.168.1.23
@@ -84,6 +85,7 @@ systemctl status nginx
 <div align="center">
 <img src="https://github.com/WiemFd/Ansible_Orchestration/assets/128514665/d21c087a-0c0f-480d-9b1b-9f1eb3441a9e" width="700" height="350">
 </div>
+
 ```
 exit
 ```
