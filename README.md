@@ -95,11 +95,11 @@ Open a web browser and enter the following URL :
 ```
 If everything is correctly set up, this page will be displayed :
 <div align="center">
-<img src="https://github.com/WiemFd/Ansible_Orchestration/assets/128514665/608ecb22-9956-4016-a7ae-009d2c62f052" width="700" height="500">
+<img src="https://github.com/WiemFd/Ansible_Orchestration/assets/128514665/608ecb22-9956-4016-a7ae-009d2c62f052" width="600" height="400">
 </div>
 
 ###  11.  Test {nodes information} playbook :
-This playbook collects information about the managed nodes. It gathers facts about the system, such as the hostname, user, group name, IP address, operating system, CPU, System time. Besides, there are two commented lines in the playbook that can be activated to gather more information about the disk space and installed packages on each node.
+This playbook collects information about the managed nodes. It gathers facts about the system, such as the hostname, user, group name, IP address, operating system, CPU and System time. Besides, there are two commented lines in the playbook that can be activated to gather more information about the disk space and installed packages on each node.
 ```
 ansible-playbook -i inventory.ini PLAYBOOKs/Nodes_Information.yml
 ```
@@ -121,7 +121,7 @@ After the playbook execution, a directory named "works" has been created on the 
 Inside the "works" directory, you will find the collected files from each node. The directory structure will be organized based on the hostname of each node.
 
 <div align="center">
-<img src="https://github.com/WiemFd/Ansible_Orchestration/assets/128514665/27b2c7dd-1098-49ee-aefc-7c9a2bfb0cd0" width="400" height="350">
+<img src="https://github.com/WiemFd/Ansible_Orchestration/assets/128514665/27b2c7dd-1098-49ee-aefc-7c9a2bfb0cd0" width="300" height="300">
 </div>
 
 By using the default value of "flat: no" in the playbook, the files collected from multiple hosts with the same filename will not overwrite each other. This ensures that each file is preserved with its original name and avoids conflicts in the collected files.
