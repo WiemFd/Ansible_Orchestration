@@ -95,7 +95,7 @@ Open a web browser and enter the following URL :
 ```
 If everything is correctly set up, this page will be displayed :
 <div align="center">
-<img src="https://github.com/WiemFd/Ansible_Orchestration/assets/128514665/608ecb22-9956-4016-a7ae-009d2c62f052" width="600" height="400">
+<img src="https://github.com/WiemFd/Ansible_Orchestration/assets/128514665/80f656c2-6c62-488b-9484-1a723a8ef178" width="600" height="400">
 </div>
 
 ###  11.  Test {nodes information} playbook :
